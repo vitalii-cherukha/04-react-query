@@ -5,7 +5,6 @@ interface MovieGridProps {
   movies: Movie[];
   onSelect: (movie: Movie) => void;
 }
-const basicsImgUrl: string = 'https://image.tmdb.org/t/p/w500';
 
 const MovieGrid = ({ onSelect, movies }: MovieGridProps) => {
   return (
@@ -18,7 +17,7 @@ const MovieGrid = ({ onSelect, movies }: MovieGridProps) => {
               <img
                 onClick={() => onSelect(movie)}
                 className={css.image}
-                src={basicsImgUrl + movie.poster_path}
+                src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                 alt={movie.title}
                 loading="lazy"
               />

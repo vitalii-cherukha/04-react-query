@@ -3,8 +3,6 @@ import { Movie } from '../../types/movie';
 import css from './MovieModal.module.css';
 import { createPortal } from 'react-dom';
 
-const basicsImgUrl: string = 'https://image.tmdb.org/t/p/w500';
-
 interface MovieModalProps {
   movie: Movie;
   onClose: () => void;
@@ -45,7 +43,7 @@ const MovieModal = ({ movie, onClose }: MovieModalProps) => {
           &times;
         </button>
         <img
-          src={basicsImgUrl + movie.backdrop_path}
+          src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`}
           alt={movie.title}
           className={css.image}
         />

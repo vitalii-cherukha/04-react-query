@@ -8,16 +8,24 @@ axios.defaults.headers.common['Authorization'] = `Bearer ${API_KEY}`;
 
 interface TMDBResponse {
     results: Movie[];
+    total_pages: number;
 }
 
-export const getMovies = async (query: string): Promise<Movie[]> => {
+
+
+export const getMovies = async (query: string, page: number): Promise<TMDBResponse> => {
     const { data } = await axios.get<TMDBResponse>("/search/movie", {
         params: {
             query,
             language: "en-US",
-            page: 1,
+            page,
+            include_adult: true,
+
         },
     });
-    return data.results;
+    return {
+        results: data.results,
+        total_pages: data.total_pages,
+    };
 }
 
