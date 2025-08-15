@@ -19,7 +19,6 @@ export const getMovies = async (query: string, page: number): Promise<TMDBRespon
             query,
             language: "en-US",
             page,
-            include_adult: true,
 
         },
     });
